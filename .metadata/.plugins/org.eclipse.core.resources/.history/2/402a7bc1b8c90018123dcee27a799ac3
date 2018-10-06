@@ -1,0 +1,26 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] randomArray = {5,2,9,8,1};
+		insertionSort(randomArray,randomArray.length);
+		System.out.println(randomArray);
+		
+	}
+	
+	public static void insertionSort(int[] intArray,int n) {
+		if(n>=1) {
+		insertionSort(intArray, n-1);
+
+			while(intArray[n-2]>intArray[n-1]&&n>=2) {
+				int temp = intArray[n-2];
+				intArray[n-2] = intArray[n-1];
+				intArray[n-1]=temp;
+				n--;
+			}
+		}//loop compare
+			
+	}
+
+}
