@@ -58,9 +58,8 @@ public class Main {
 			ArrayList<Integer> oneIntegerArray = new ArrayList<>();
 			oneIntegerArray.add(intArray[0]);
 			collection.add(oneIntegerArray);
-			collection.add(new ArrayList<>());
 		}else if (n>1) {
-			ArrayList<ArrayList<Integer>> previousArray= subset(intArray, n-1);
+			ArrayList<ArrayList<Integer>> previousArray= permutation(intArray, n-1);
 			
 			for (ArrayList<Integer> onePreviouseArray : previousArray) {
 					ArrayList<Integer> temp =(ArrayList<Integer>)onePreviouseArray.clone();

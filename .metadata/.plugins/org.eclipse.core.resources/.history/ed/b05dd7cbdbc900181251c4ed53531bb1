@@ -5,15 +5,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] randomArray = {1,2,3};
+		int[] randomArray = {5,2,9,8,1,0,7};
 		insertionSort(randomArray,randomArray.length);
 		System.out.println(Arrays.toString(randomArray));
-		
 		ArrayList<ArrayList<Integer>> collection =permutation(randomArray, randomArray.length);
 		System.out.println(collection);
-		
-		ArrayList<ArrayList<Integer>> collectionSubset =subset(randomArray, randomArray.length);
-		System.out.println(collectionSubset);
 		
 	}
 	
@@ -40,8 +36,8 @@ public class Main {
 			ArrayList<ArrayList<Integer>> previousArray= permutation(intArray, n-1);
 			
 			for (ArrayList<Integer> onePreviouseArray : previousArray) {
-				for(int i =0;i<n;i++) {
-					ArrayList<Integer> temp =(ArrayList<Integer>)onePreviouseArray.clone();
+				for(int i =0;i<=n;i++) {
+					ArrayList<Integer> temp =onePreviouseArray;
 					temp.add(i, intArray[n-1]);
 					collection.add(temp);
 				}
@@ -52,26 +48,5 @@ public class Main {
 		return collection;
 		
 	}
-	public static ArrayList<ArrayList<Integer>> subset(int[] intArray, int n) {
-		ArrayList<ArrayList<Integer>> collection = new ArrayList<>();
-		if(n==1) {
-			ArrayList<Integer> oneIntegerArray = new ArrayList<>();
-			oneIntegerArray.add(intArray[0]);
-			collection.add(oneIntegerArray);
-			collection.add(new ArrayList<>());
-		}else if (n>1) {
-			ArrayList<ArrayList<Integer>> previousArray= subset(intArray, n-1);
-			
-			for (ArrayList<Integer> onePreviouseArray : previousArray) {
-					ArrayList<Integer> temp =(ArrayList<Integer>)onePreviouseArray.clone();
-					temp.add(intArray[n-1]);
-					collection.add(temp);
-					collection.add(onePreviouseArray);
-			}
 
-		}
-		
-		return collection;
-		
-	}
 }
